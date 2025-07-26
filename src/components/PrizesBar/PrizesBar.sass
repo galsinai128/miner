@@ -1,0 +1,52 @@
+@use '../../styles/varibles' as *
+
+.prizes-bar-border-container
+    background-color: $primary-green;
+    border-radius: 0 0 $radius-large 0;
+    position: relative;
+
+.prizes-bar-container-background
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+    width: 100%;
+    height: 20px;
+    position: absolute;
+    z-index: 1;
+    top: 5px;
+    right: 5px;
+    border-radius: $radius-large;
+    
+.prizes-bar-container
+    border: 5px solid $primary-green;
+    border-radius: $radius-large;
+    background-color: $primary-dark;
+    font-weight: bold;
+    display: flex;
+    padding: 0 10px;
+
+    & .prizes-bar-item
+        width: 33%;
+        margin-left: 5px;
+
+.prizes-bar-container .prizes-bar-item:first-child
+    border-right: 3px solid $primary-green;
+
+.next-prize-container
+    background-color: $primary-green;
+    max-width: 120px;
+    border-radius: 0 0 $radius-large $radius-large;
+
+    .next-prize-title
+        font-weight: bold;
+        text-align: center;
+
+    .next-prize-data
+        background-color: $primary-dark;
+        display: flex;
+        justify-content: center;
+        border: 5px solid $primary-green;
+        border-radius: $radius-large;
+        padding: 2px;
+
+        .next-prize-data-bold-number
+            font-weight: bold;
+            margin-left: 5px;
