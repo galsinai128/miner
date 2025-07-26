@@ -37,7 +37,6 @@ const BoardCell: React.FC<BoardCellProps> = ({
         <div className="card-front"></div>
         <div 
             className={`card-back ${cell.isWinning ? '' : 'bomb'}`}
-            style={cell.isFlipped ? {} : {background: 'linear-gradient(to bottom, rgba(253, 203, 83, 1), rgba(254, 158, 24, 1))'}}
         >
             {cell.isFlipped && (
                 cell.isWinning ? (

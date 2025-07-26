@@ -10,6 +10,7 @@ import {
   FIREWORKS_ANIMATION_TIME, 
   COINS_COUNT_IN_MILLISECOND_TIME,
   SLIDE_PRIZE_ANIMATION_PHASE,
+  TIME_FOR_CARDS_TO_FLIP,
 } from './utils/constants'
 import PlayerCredit from './components/PlayerCredit/PlayerCredit'
 import GameBoard from './components/GameBoard/GameBoard'
@@ -38,8 +39,9 @@ function App() {
   const fetchAndInitGame = ()=>{
     setIsLoadingGame(true);
     fetchBoard()
-      .then((res: Game) => {
+      .then(async (res: Game) => {
         initGame(res);
+        await waitForCardsToFlip(); 
         setIsLoadingGame(false);
       })
       .catch((e) => {
@@ -56,7 +58,7 @@ function App() {
         isFlipped: false,
       }))
     );
-    // console.log(newBoard)
+    console.log(newBoard)
     setGameBoard(newBoard);
     setAmountPerWin(game.amountPerWin)
     let numberOfWinningCellsRes = 0;
@@ -71,6 +73,10 @@ function App() {
     setCurrentDollarBalance(0);
     setNumberOfFlippedCells(0);
     setGameWon(false);
+  }
+
+  const waitForCardsToFlip = async ()=> {
+    await sleep(TIME_FOR_CARDS_TO_FLIP);
   }
 
   const onCashoutGameClicked = () => {
@@ -109,8 +115,8 @@ function App() {
   const slideAnimation = async ()=> {
     const el = document.getElementById('current_prize_el');
     if (el){
-      for (let i = 0; i < el.offsetWidth; i++) {
-        setSlideAnimationVal(prev => prev + 1)
+      for (let i = 0; i < el.offsetWidth; i+=5) {
+        setSlideAnimationVal(prev => prev + 5)
         await sleep(SLIDE_PRIZE_ANIMATION_PHASE);
       }
       setSlideAnimationVal(0)      
@@ -171,7 +177,7 @@ function App() {
         <span className='title-icon title-right-icon'><FaBomb color='red'/></span>
         <div className="game-title">LUCKYMINER</div>
       </div>
-      <div className='game-container'>
+      <div className='game-container' style={isLoadingGame ? {visibility: 'hidden'} : {}}>
         <PlayerCredit currentDollarBalance={currentDollarBalance} maxPrize={amountPerWin * numberOfWinningCells}/>
         <GameBoard
           gameBoard={gameBoard}
