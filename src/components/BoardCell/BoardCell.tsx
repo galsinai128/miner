@@ -16,6 +16,7 @@ type BoardCellProps = {
   rowIndex: number;
   onCellClicked: (rowIndex: number, cellIndex: number) => void;
   isGameEnded: boolean,
+  isCellDisabled: boolean,
 };
 
 const BoardCell: React.FC<BoardCellProps> = ({
@@ -24,13 +25,14 @@ const BoardCell: React.FC<BoardCellProps> = ({
   rowIndex,
   onCellClicked,
   isGameEnded,
+  isCellDisabled,
 }) => {
 
   const screenWidth = useScreenWidth();
 
   return (
     <div
-      className={`cell-container ${cell.isFlipped ? 'flipped' : ''} ${isGameEnded ? 'disabled' : ''}`}
+      className={`cell-container ${cell.isFlipped ? 'flipped' : ''} ${isGameEnded ? 'disabled' : ''} ${isCellDisabled ? 'cursor_auto' : ''}`}
       onClick={() => onCellClicked(rowIndex, cellIndex)}
     >
       <div className="card-inner">

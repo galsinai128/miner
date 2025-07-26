@@ -14,6 +14,7 @@ type GameBoardProps = {
   balanceAdded: number,
   isGameEnded: boolean,
   slideAnimationVal: number,
+  isCellDisabled: boolean,
 };
 
 const GameBoard: React.FC<GameBoardProps> = ({ 
@@ -25,6 +26,7 @@ const GameBoard: React.FC<GameBoardProps> = ({
   balanceAdded,
   isGameEnded,
   slideAnimationVal,
+  isCellDisabled,
 }) => {
   if (!gameBoard) return null;
 
@@ -41,6 +43,7 @@ const GameBoard: React.FC<GameBoardProps> = ({
                   cellIndex={cellIndex} 
                   rowIndex={rowIndex}
                   isGameEnded={isGameEnded}
+                  isCellDisabled={isCellDisabled}
                 />
               </div>
             ))}

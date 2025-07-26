@@ -188,6 +188,7 @@ function App() {
           balanceAdded={balanceAdded}
           isGameEnded={isGameEnded}
           slideAnimationVal={slideAnimationVal}
+          isCellDisabled={isGameEnded || isAddingBalance}
         />
         <div className='control-panel'>
 
