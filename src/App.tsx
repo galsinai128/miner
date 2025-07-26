@@ -58,7 +58,7 @@ function App() {
         isFlipped: false,
       }))
     );
-    console.log(newBoard)
+    // console.log(newBoard)
     setGameBoard(newBoard);
     setAmountPerWin(game.amountPerWin)
     let numberOfWinningCellsRes = 0;

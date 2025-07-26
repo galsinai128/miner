@@ -5,4 +5,4 @@ export const COINS_COUNT_IN_MILLISECOND_TIME = 1;
 export const SLIDE_PRIZE_ANIMATION_PHASE = 1;
 export const CELL_ICON_SIZE_LARGE_SCREEN = 75;
 export const CELL_ICON_SIZE_MOBILE = 50;
-export const TIME_FOR_CARDS_TO_FLIP = 500;
+export const TIME_FOR_CARDS_TO_FLIP = 250;
