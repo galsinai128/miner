@@ -16,7 +16,6 @@ This is the lucky miner implementation home assignment
 - ui with sass
 - animations
 - cashout
-- testing with Jest
 
 ## External libs
 - firewroks-js
